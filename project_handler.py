@@ -58,8 +58,6 @@ def create_webdevkit(name):
     os.startfile(WEB_DEV_FOLDER_PATH)
     os.chdir(WEB_DEV_FOLDER_PATH)
 
-
-
 def delete_project(name):
 
     dir_path = f"C:\\Users\\Lenovo\\Desktop\\python\\practice\\{name}"
