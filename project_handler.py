@@ -63,9 +63,13 @@ def create_webdevkit(name):
 def delete_project(name):
 
     dir_path = f"C:\\Users\\Lenovo\\Desktop\\python\\practice\\{name}"
+    dir_path_webdev = f"C:\\Users\\Lenovo\\Desktop\\webdev\\practice\\{name}"
 
     if os.path.exists(dir_path):
         shutil.rmtree(dir_path)
+        print(Fore.GREEN + f"{dir_path}\nValid path...\nRemoving {name}" + Style.RESET_ALL)
+    elif os.path.exists(dir_path_webdev):
+        shutil.rmtree(dir_path_webdev)
         print(Fore.GREEN + f"{dir_path}\nValid path...\nRemoving {name}" + Style.RESET_ALL)
     else:
         print(Fore.RED + f"{name} is not a valid project name." + Style.RESET_ALL)

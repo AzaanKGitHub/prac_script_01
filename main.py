@@ -58,17 +58,13 @@ if os.path.isdir(PROJECT_FOLDER_PATH) == True or os.path.isdir(WEB_DEV_FOLDER_PA
             elif user_input == "2":
                 print("\nExiting...")
                 exit()
-            
-
+            elif user_input == "3":
+                os.chdir(WEB_DEV_FOLDER_PATH)
+                print("\nAvailable projects to remove:\n" + str(os.listdir('.')))
+                rm_dir = input("\nRemove project: ")
+                ph.delete_project(rm_dir)
     else:
         print(Fore.RED + "\ninvalid input." + Style.RESET_ALL)
-
-
-    
-
-    
-            
-
 
    # print(Style.RESET_ALL) # Resets to default
 else:
