@@ -21,6 +21,7 @@ def create_project(name):
 # creates webdev projects
 def create_webdevkit(name):
     boiler_plate_text = "C:\\Users\\Lenovo\\Desktop\\python\\practice\\prac_script_01\\boilerplate.txt"
+    global_css_text = "C:\\Users\\Lenovo\\Desktop\\python\\practice\\prac_script_01\\globalcss.txt"
     destination_file_path = os.path.join(WEB_DEV_FOLDER_PATH, name)
      
     os.mkdir(name)
@@ -37,6 +38,12 @@ def create_webdevkit(name):
     os.chdir("css") # changes directory to newly made css folder
     with open("styles.css", "w") as file:
         file.write(f"/* Project {name} styles file */")
+    
+    with open(global_css_text, "r") as global_css_file:
+        global_css_content = global_css_file.read()
+    
+    with open("global.css", "w") as file:
+        file.write(global_css_content)
     os.chdir("..")
 
     # create javascript folder
