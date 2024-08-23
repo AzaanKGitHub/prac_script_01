@@ -1,6 +1,10 @@
 import os
 import shutil
 from colorama import init , Fore, Style
+
+init() # colorama initialization
+
+
 PROJECT_FOLDER_PATH = "C:\\Users\\Lenovo\\Desktop\\python\\practice"
 WEB_DEV_FOLDER_PATH = "C:\\Users\\Lenovo\\Desktop\\webdev\\practice"
 
