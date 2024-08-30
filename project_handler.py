@@ -1,12 +1,12 @@
 import os
 import shutil
 from colorama import init , Fore, Style
+import machine_select
 
 init() # colorama initialization
 
+PROJECT_FOLDER_PATH, WEB_DEV_FOLDER_PATH = machine_select.select_machine()
 
-PROJECT_FOLDER_PATH = "C:\\Users\\Lenovo\\Desktop\\python\\practice"
-WEB_DEV_FOLDER_PATH = "C:\\Users\\Lenovo\\Desktop\\webdev\\practice"
 
 # creates python projects
 def create_project(name):
