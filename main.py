@@ -1,9 +1,13 @@
 import os # provides access to operating system-dependent functionality
 import project_handler as ph # project handler module for creating and deleting projects
 from colorama import init, Fore, Back, Style
-import tkinter as tk # module for GUI 
+import tkinter as tk # module for GUI
+import machine_select
+
 
 init() # colorama initialization
+
+
 
 # folder path for project creation 
 PROJECT_FOLDER_PATH = "C:\\Users\\Lenovo\\Desktop\\python\\practice"
