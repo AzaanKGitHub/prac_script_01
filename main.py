@@ -7,17 +7,15 @@ import machine_select
 
 init() # colorama initialization
 
-
-
 # folder path for project creation 
-PROJECT_FOLDER_PATH = "C:\\Users\\Lenovo\\Desktop\\python\\practice"
-WEB_DEV_FOLDER_PATH = "C:\\Users\\Lenovo\\Desktop\\webdev\\practice"
+PROJECT_FOLDER_PATH, WEB_DEV_FOLDER_PATH = machine_select.select_machine()
+
 count = 0 # count for invalid input attempts
 exit = False
 
 if os.path.isdir(PROJECT_FOLDER_PATH) == True or os.path.isdir(WEB_DEV_FOLDER_PATH) == True: # checks for valid project path
 
-    print(Style.BRIGHT + Fore.GREEN + "\n[Practice Project Initializer]\n" + Style.RESET_ALL)
+    print(Style.BRIGHT + Fore.GREEN + "\n[Practice Project Initializer]" + Style.RESET_ALL)
 
     while True:
         exit = False
