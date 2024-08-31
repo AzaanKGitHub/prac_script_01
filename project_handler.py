@@ -2,7 +2,7 @@ import os
 import shutil
 from colorama import init , Fore, Style
 import machine_select
-
+ 
 init() # colorama initialization
 
 PROJECT_FOLDER_PATH, WEB_DEV_FOLDER_PATH = machine_select.select_machine()
@@ -24,55 +24,59 @@ def create_project(name):
 
 # creates webdev projects
 def create_webdevkit(name):
-    boiler_plate_text = "C:\\Users\\Lenovo\\Desktop\\python\\practice\\prac_script_01\\boilerplate.txt"
-    global_css_text = "C:\\Users\\Lenovo\\Desktop\\python\\practice\\prac_script_01\\globalcss.txt"
+    boiler_plate_text = f"{PROJECT_FOLDER_PATH}\\prac_script_01\\boilerplate.txt"
+    global_css_text = f"{PROJECT_FOLDER_PATH}\\prac_script_01\\globalcss.txt"
     destination_file_path = os.path.join(WEB_DEV_FOLDER_PATH, name)
      
-    os.mkdir(name)
-    os.chdir(destination_file_path)
+    try:
+        os.mkdir(name)
+        os.chdir(destination_file_path)
 
-    # create assets folder
-    os.mkdir("assets")
-    os.chdir("assets")
-    os.mkdir("img")
-    os.chdir("..")
+        # create assets folder
+        os.mkdir("assets")
+        os.chdir("assets")
+        os.mkdir("img")
+        os.chdir("..")
 
-    # create styles folder 
-    os.mkdir("css")
-    os.chdir("css") # changes directory to newly made css folder
-    with open("styles.css", "w") as file:
-        file.write(f"/* Project {name} styles file */")
-    
-    with open(global_css_text, "r") as global_css_file:
-        global_css_content = global_css_file.read()
-    
-    with open("global.css", "w") as file:
-        file.write(global_css_content)
-    os.chdir("..")
+        # create styles folder 
+        os.mkdir("css")
+        os.chdir("css") # changes directory to newly made css folder
+        with open("styles.css", "w") as file:
+            file.write(f"/* Project {name} styles file */")
+        
+        with open(global_css_text, "r") as global_css_file:
+            global_css_content = global_css_file.read()
+        
+        with open("global.css", "w") as file:
+            file.write(global_css_content)
+        os.chdir("..")
 
-    # create javascript folder
-    os.mkdir("js")
-    os.chdir("js")
-    with open("index.js", "w") as file:
-        file.write(f"// Project {name} js file")
+        # create javascript folder
+        os.mkdir("js")
+        os.chdir("js")
+        with open("index.js", "w") as file:
+            file.write(f"// Project {name} js file")
 
-    #create index.html file
-    os.chdir("..")
-    # read content from the srouce file
-    with open(boiler_plate_text, "r") as boiler_plate_file:
-        content = boiler_plate_file.read()
+        #create index.html file
+        os.chdir("..")
+        # read content from the srouce file
+        with open(boiler_plate_text, "r") as boiler_plate_file:
+            content = boiler_plate_file.read()
 
-    with open("index.html", "w") as file:
-        file.write(content)
+        with open("index.html", "w") as file:
+            file.write(content)
 
-    print(Fore.GREEN + "\nWeb development project initialized!" + Style.RESET_ALL)
-    os.startfile(WEB_DEV_FOLDER_PATH)
-    os.chdir(WEB_DEV_FOLDER_PATH)
+        print(Fore.GREEN + "\nWeb development project initialized!" + Style.RESET_ALL)
+        os.startfile(WEB_DEV_FOLDER_PATH)
+        os.chdir(WEB_DEV_FOLDER_PATH)
+        
+    except Exception as e:
+        print(f"\nERROR: {e}")
 
 def delete_project(name):
 
-    dir_path = f"C:\\Users\\Lenovo\\Desktop\\python\\practice\\{name}"
-    dir_path_webdev = f"C:\\Users\\Lenovo\\Desktop\\webdev\\practice\\{name}"
+    dir_path = f"{PROJECT_FOLDER_PATH}\\{name}"
+    dir_path_webdev = f"{WEB_DEV_FOLDER_PATH}\\{name}"
 
     if os.path.exists(dir_path):
         shutil.rmtree(dir_path)
